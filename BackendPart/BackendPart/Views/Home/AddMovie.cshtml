@@ -1,0 +1,17 @@
+﻿<h4>Список фильмов</h4>
+<ul class="list-movie">
+    @foreach (var M in ViewBag.Movie)
+            {
+        <li>
+            <div>
+                <span>@M.Name</span> @Ajax.ActionLink("INFO", "GetSales", "Home", new { id = M.Id },
+                                    new AjaxOptions { UpdateTargetId = "tickets" },
+                                    new { @class = "btn btn-success getinfo" })
+                @Ajax.ActionLink("DELETE", "Delete", "Home", new { id = M.Id },
+                                    new AjaxOptions { UpdateTargetId = "movie" },
+                                    new { @class = "btn btn-danger getinfo" })
+            </div>
+        </li>
+    }
+</ul>
+

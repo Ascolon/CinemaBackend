@@ -1,0 +1,33 @@
+﻿<div class="col-md-5" style="padding:0">
+    <div class="col-md-12" id="movie" style="padding:0; height:60vh;overflow-y:auto">
+        <h4>Список фильмов</h4>
+        <ul class="list-movie">
+            @foreach (var M in ViewBag.Movie)
+            {
+                <li>
+                    <div>
+                        <span>@M.Name</span> @Ajax.ActionLink("INFO", "GetSales", "Home", new { id = M.Id },
+                                    new AjaxOptions { UpdateTargetId = "tickets" },
+                                    new { @class = "btn btn-success getinfo" })
+                        @Ajax.ActionLink("DELETE", "Delete", "Home", new { id = M.Id },
+                                    new AjaxOptions { UpdateTargetId = "movie" },
+                                    new { @class = "btn btn-danger getinfo" })
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <hr>
+    <div class="col-md-12" style="padding:0;">
+        @using (Ajax.BeginForm("AddMovie", "Home", 
+            new AjaxOptions { UpdateTargetId = "movie" }, new { @class = "AddForm"}))
+        {
+            <input class="form-control mName" autocomplete="off" type="text" name="name" required style="margin-bottom:10px;" />
+            <input class="form-control mTime" type="date" name="time" required style="margin-bottom:10px;" />
+            <input class="btn btn-success add" type="submit" value="Добавить" />
+        }
+    </div>
+</div>
+<div class="col-md-7" id="tickets">
+
+</div>

@@ -1,0 +1,17 @@
+﻿<h4>Проданные билеты</h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <td>Дата продажи</td>
+            <td>Кол-во билетов</td>
+        </tr>
+    </thead>
+    @foreach (var T in ViewBag.Selected.SoldTickets)
+    {
+        <tr>
+            <td style="font-size:16px;">@T.SalesTime</td>
+            <td style="font-size:16px;">@T.QuantitySold</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,18 @@
+﻿body {
+    padding:0px;
+    margin:0px;
+}
+.list-movie{
+
+    font-size:18px;
+}
+.list-movie li{
+    padding:0px;
+    list-style-type:none;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:0px;
+}
+.getinfo{
+    float:right;
+}
